@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bimshani Upethra</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :focus-visible {
+            outline-offset: 4px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: hsl(0, 0%, 95%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: hsl(0, 0%, 50%);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: hsl(0, 0%, 29%);
+        }
+
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(55, 79, 156);
+            color: black;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 2rem 9%;
+            background: rgb(192, 222, 231);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        .header.sticky {
+            background: rgba(51, 48, 102, 0.664);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: black;
+            font-weight: 600;
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: black;
+            font-weight: 500;
+            margin-left: 3.5rem;
+        }
+
+        .navbar a:hover {
+            color: rgb(55, 79, 156);
+        }
+
+        .navbar a.active {
+            color: rgb(55, 79, 156);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .home {
+            display: flex;
+            align-items: center;
+            padding: 5% 9%;
+            background: url('./images/background.png') no-repeat;
+            background-size: cover;
+            background-position: center;
+            ;
+        }
+
+        .home-content {
+            max-width: 70rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .home-content h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-content .text-animate {
+            position: relative;
+            max-width: 70rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .home-content .text-animate h3 {
+            font-size: 3.0rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 0.9px rgb(32, 56, 133);
+            background-image: linear-gradient(rgb(5, 1, 56), rgb(5, 75, 236));
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            -webkit-background-clip: text;
+            animation: homeBgText 6s linear infinite;
+            animation-delay: 2s;
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .btn-box {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 34.5rem;
+            height: 5rem;
+        }
+
+        .btn-box .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15rem;
+            height: 100%;
+            background: rgb(192, 204, 231);
+            border: 0.2rem solid rgb(192, 222, 231);
+            border-radius: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1rem;
+            color: rgb(55, 79, 156);
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .btn-box .btn:hover {
+            color: rgb(192, 204, 231);
+        }
+
+        .btn-box .btn:nth-child(2) {
+            background: transparent;
+            color: rgb(192, 222, 231);
+        }
+
+        .btn-box .btn:nth-child(2):hover {
+            color: rgb(55, 79, 156);
+        }
+
+        .btn-box .btn:nth-child(2)::before {
+            background: rgb(192, 222, 231);
+        }
+
+        .btn-box .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgb(55, 79, 156);
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .btn-box .btn:hover::before {
+            width: 100%;
+        }
+
+        .home-sci {
+            position: absolute;
+            bottom: 5rem;
+            width: 170px;
+            display: inline-flex;
+            justify-content: space-between;
+        }
+
+        .home-sci a {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: 0.2rem solid rgb(0, 0, 0);
+            border-radius: 50%;
+            font-size: 26px;
+            color: rgb(0, 0, 0);
+        }
+
+        .home-sci a:hover {
+            color: rgb(192, 222, 231);
+            border: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .home-social-icon {
+            width: 75%;
+
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+            background-color: rgb(55, 79, 156);
+            padding-bottom: 3rem;
+        }
+
+        .heading {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        span {
+            color: rgb(192, 222, 231);
+        }
+
+        .about-img {
+            position: relative;
+            width: 21rem;
+            height: 21rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 90%;
+            border-radius: 50%;
+            border: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .about-img .circle-spin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border-top: 0.2rem solid rgb(105, 128, 202);
+            border-bottom: 0.2rem solid rgb(105, 128, 202);
+            border-left: 0.2rem solid rgb(192, 222, 231);
+            border-right: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .btn-box.btns {
+            display: inline-block;
+            width: 15rem;
+        }
+
+        .btn-box.btns a::before {
+            background: rgb(192, 222, 231);
+        }
+
+        .education {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: auto;
+            padding-bottom: 5rem;
+        }
+
+        .education .education-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5rem;
+        }
+
+        .education-column .title {
+            font-size: 2.3rem;
+        }
+
+        .education-column .education-box {
+            border-left: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .education-box .education-content {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .icon-calendar {
+            width: 15px;
+            height: 15px;
+            margin-right: 15px;
+        }
+
+        .education-box .education-content::before {
+            content: '';
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top: 0;
+            left: -1.1rem;
+            background-color: rgb(192, 222, 231);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .education-content .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgb(192, 222, 231);
+            opacity: 0.4;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .education-content .content:hover::before {
+            width: 100%;
+        }
+
+
+        .education-content .content {
+            position: relative;
+            padding: 0.2rem;
+            border: 0.2rem solid rgb(192, 222, 231);
+            border-radius: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-content .content .year {
+            font-size: 1.3rem;
+            color: rgb(192, 222, 231);
+            padding-bottom: 0.2rem;
+
+        }
+
+        .education-content .content .year i {
+            padding-right: 0.5rem;
+        }
+
+        .education-content .content h3 {
+            font-size: 1.5rem;
+        }
+
+        .education-content .content p {
+            font-size: 1.3rem;
+            padding-top: 0.2rem;
+        }
+
+        .skills {
+            min-height: auto;
+            padding-bottom: 20rem;
+            background: rgb(55, 79, 156);
+        }
+
+        .skills .skills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        .skills-row .skills-column {
+            flex: 1 1 40rem;
+        }
+
+        .skills-box .skills-content {
+            position: relative;
+            border: 0.2rem solid rgb(192, 222, 231);
+            border-radius: 0.6rem;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .skills-content .progress {
+            padding: 0.5rem 0;
+        }
+
+        .skills-content .progress h3 {
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skills-content .progress h3 span {
+            color: black;
+        }
+
+        .skills-content .progress .bar {
+            height: 2rem;
+            border-radius: 0.6rem;
+            border: 0.2rem solid rgb(192, 222, 231);
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .skills-content .bar span {
+            display: block;
+            height: 100%;
+            border-radius: 0.3rem;
+            background-color: rgb(192, 222, 231);
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
+            width: 90%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
+            width: 70%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
+            width: 50%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
+            width: 30%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(5) .bar span {
+            width: 70%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(6) .bar span {
+            width: 50%;
+        }
+
+        .skills-column:nth-child(1) .skills-content .progress:nth-child(7) .bar span {
+            width: 75%;
+        }
+
+        .contact {
+            min-height: auto;
+            padding-bottom: 7rem;
+        }
+
+        .contact form {
+            max-width: 70rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact form .input-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact form .input-box .input-field {
+            width: 48%;
+            margin: 0.8rem 0;
+        }
+
+        .contact form .input-box .input-field input {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: black;
+            background: transparent;
+            border-radius: 0.6rem;
+            border: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .contact form .input-box .input-field input::placeholder {
+            color: black;
+        }
+
+        .contact form .focus {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgb(192, 222, 231);
+            opacity: 0.5;
+            border-radius: 0.6rem;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .contact form .input-box .input-field input:focus~.focus,
+        .contact form .input-box .input-field input:valid~.focus {
+            width: 100%;
+        }
+
+        .contact form .textarea-field {
+            margin: 0.8rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact form .textarea-field textarea {
+            width: 100%;
+            resize: none;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: black;
+            background: transparent;
+            border-radius: 0.6rem;
+            border: 0.2rem solid rgb(192, 222, 231);
+        }
+
+        .contact form .textarea-field textarea::placeholder {
+            color: black;
+        }
+
+        .contact form .btn-box .btns .btn {
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background-color: rgb(192, 222, 231);
+        }
+
+        .footer-text p {
+            font-size: 1.6rem;
+        }
+
+        .footer-icon a {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.8rem;
+            background: rgb(105, 128, 202);
+            border: 0.2rem solid rgb(105, 128, 202);
+            border-radius: 0.6rem;
+        }
+
+        /*Breakpoints*/
+        @media (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .header {
+                padding: 2rem 4%;
+            }
+
+            section {
+                padding: 10rem 4% 2rem;
+            }
+
+            .home {
+                padding: 0 4%;
+            }
+
+            .footer {
+                padding: 2rem 4%;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header {
+                background: rgb(192, 222, 231);
+            }
+
+            #menu-icon {
+                display: block;
+                font-size: 3.6rem;
+                cursor: pointer;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                padding: 1rem 4%;
+                background: rgb(192, 222, 231);
+                z-index: 1;
+                transition: 0.25s ease;
+                transition-delay: 0.25s;
+            }
+
+            .navbar.active .active-nav {
+                left: 0;
+                transition-delay: 3rem 0;
+            }
+
+            .navbar.active {
+                left: 0;
+                transition-delay: 0s;
+            }
+
+            .navbar .active-nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgb(48, 37, 99);
+                border-top: 0.1rem solid rgb(55, 79, 156);
+                z-index: -1;
+                transition: 0.25s ease;
+                transition-delay: 0s;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+                transform: translateX(-20rem);
+                transition: 0.25s ease;
+                transition-delay: 0s;
+            }
+
+            .navbar.active a {
+                transform: translateX(0);
+                transition-delay: 0s;
+            }
+
+            .home {
+                padding: 0 4%;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+
+
+        @media (max-width: 520px) {
+            html {
+                font-size: 50%;
+            }
+
+            .home-content h1 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .home-sci {
+                width: 160px;
+            }
+
+            .home-sci a {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 462px) {
+            .home-content h1 {
+                font-size: 5.2rem;
+            }
+
+            .education {
+                padding: 10rem 4% 5rem 5%;
+            }
+
+            .contact form .input-box .input-field {
+                width: 100%;
+            }
+
+            .footer {
+                flex-direction: column-reverse;
+            }
+
+            .footer p {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 371px) {
+            .home {
+                justify-content: center;
+            }
+
+            .home-content,
+            .about-content,
+            .education,
+            .skills {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-content h1 {
+                font-size: 5rem;
+            }
+        }
+
+
+        /*keyframe animations*/
+        @keyframes homeBgText {
+
+            0%,
+            10%,
+            100% {
+                background-position: -60rem 0;
+            }
+
+            65%,
+            85% {
+                background-position: 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="https://www.linkedin.com/in/bimshani-upethra-1b470224b/" class="logo">BU</a>
+
+        <right>
+            <div id="menu-icon">&#9776;</div>
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <nav class="navbar ">
+
+                <a href="#home" class="navbar-link" data-nav-link>Home</a>
+
+                <a href="#about" class="navbar-link" data-nav-link>About</a>
+
+                <a href="#education" class="navbar-link" data-nav-link>Education</a>
+
+                <a href="#skills" class="navbar-link" data-nav-link>Skills</a>
+
+                <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+            </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, I'm <span>Bimshani Upethra</span></h1>
+            <div class="text-animate">
+                <h3>Computer Science Undergraduate</h3>
+            </div>
+            <p><b> I am a first-year undergraduate student with a deep passion for the field of computing. My journey
+                    into the world of technology began with an insatiable curiosity and a desire to explore the
+                    limitless possibilities that the digital realm has to offer.</b></p>
+            <div class="btn-box">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="https://www.instagram.com/_bimshani_/" class="btn">Get in Touch</a>
+            </div>
+
+            <div class="home-sci">
+                <a href="https://github.com/bimshani">
+                    <img src="./images/github-ico.png" alt="icon" class="home-social-icon" />
+                </a>
+                <a href="https://www.instagram.com/_bimshani_/">
+                    <img src="./images/insta-ico.png" alt="icon" class="home-social-icon" />
+                </a>
+                <a href="https://www.linkedin.com/in/bimshani-upethra-1b470224b/">
+                    <img src="./images/linkedin-ico.png" alt="icon" class="home-social-icon" />
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+        <div class="about-img">
+            <img src="./images/bgab.jpeg.jpg" alt="image">
+            <span class="circle-spin"></span>
+        </div>
+        <div class="about-content">
+            <h3>Full-Stack Web Developer</h3>
+            <p>Welcome to my digital realm! I'm a first-year computer science undergraduate on a quest to harness the
+                magic of programming and web development. With a blend of creativity that fuels my website creations and
+                analytical precision that drives my coding, I'm on a journey to craft digital experiences that leave a
+                lasting impression.</p>
+        </div>
+
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="heading">My <span>Journey</span></h2>
+        <div class="education-row">
+            <div class="education-column">
+                <h3 class="title">Education</h3>
+
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="material-icons icon-calendar">calendar_month</i>2016 - 2021
+                            </div>
+                            <h3>Upper Secondary Education - Sangamiththa Balika Vidyalaya</h3>
+                            <p>Successfully completed O/L examination with 8A's (including ICT) & 1B. Then completed A/L
+                                examination with 3C's in physical Science stream.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="material-icons icon-calendar">calendar_month</i>2018-2019</div>
+                            <h3>Advanced Certificate in English - NIBM</h3>
+                            <p>Successfully completed the six month course with a merit pass.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="material-icons icon-calendar">calendar_month</i>2020</div>
+                            <h3>Certificate in Cybersecurity - CISCO</h3>
+                            <p>Successfully completed 3 months online course in CISCO Networking Academy.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="material-icons icon-calendar">calendar_month</i>2021 onwards
+                            </div>
+                            <h3>Trainee Full-Stack Developer programme - University of Moratuwa</h3>
+                            <p>Successfully completed introduction to programming using python and web development.
+                                Still reading.</p>
+                        </div>
+                    </div>
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class="material-icons icon-calendar">calendar_month</i>2023 onwards
+                            </div>
+                            <h3>BSc(Honurs) in Computer Science - Sir John Kotelawala Defese University</h3>
+                            <p>Currently involved in the course.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+
+        <div class="skills-row">
+            <div class="skills-column">
+
+                <div class="skills-box">
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <h3>HTML<span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>CSS<span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>JavaScript<span>50%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>PHP<span>30%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>Python<span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>Java<span>50%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>Photoshop<span>75%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+
+        <form action="https://formspree.io/f/xbjngyjk" method="POST">
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" placeholder="Full Name" required>
+                    <span class="focus"></span>
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email Address" name="email" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="number" placeholder="Mobile Number" required>
+                    <span class="focus"></span>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Email Subject" name="message" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="textarea-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <span class="focus"></span>
+            </div>
+
+            <div class="btn-box btns">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Bimshani | All Rights Reserved. </p>
+        </div>
+        <div class="footer-icon">
+            <a href="#"><i class="material-icons"> arrow_upward</i></a>
+        </div>
+    </footer>
+
+    <script>
+
+        document.getElementById('menu-icon').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+
+        // Select all navbar links
+        const navLinks = document.querySelectorAll('.navbar-link');
+
+        // Add click event listeners to navbar links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                
+                setTimeout(() => {
+                    document.querySelector('.navbar').classList.remove('active');
+                }, 300);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
